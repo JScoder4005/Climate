@@ -7,7 +7,17 @@ import CityPage from './pages/city-page';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-const queryClient = new QueryClient();
+//catch stale data, i mean when you are in some citry and visit some other other when you come back, it will prevent from fetching data
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      gcTime: 10 * 60 * 1000, // 10 minutes
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
