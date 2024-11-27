@@ -7,7 +7,7 @@ export const WEATHER_KEYS = {
   forecast: (coords: Coordinates) => ['forecast', coords],
   location: (coords: Coordinates) => ['location', coords],
 } as const;
-export function useWeather(coordinates: Coordinates | null) {
+export function useWeatherQuery(coordinates: Coordinates | null) {
   return useQuery({
     queryKey: WEATHER_KEYS.weather(coordinates ?? { lat: 0, lon: 0 }),
     queryFn: () =>
