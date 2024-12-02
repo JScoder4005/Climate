@@ -25,6 +25,8 @@ function FavoriteCityTablet({
   const navigate = useNavigate();
   const { data: weather, isLoading } = useWeatherQuery({ lat, lon });
 
+  // console.log(useWeatherQuery);
+
   const handleClick = () => {
     navigate(`/city/${name}?lat=${lat}&lon=${lon}`);
   };
