@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useTheme } from './context/theme-provider';
 import { Moon, Sun } from 'lucide-react';
-import CitySearch from './city-search';
+// import CitySearch from './city-search';
+import { CitySearch } from './city-search';
 
 const Header = () => {
   const { theme, setTheme } = useTheme();

@@ -3,7 +3,7 @@ import { useLocalStorage } from './use-local-storage';
 
 interface FavoriteCity {
   id: string;
-  query: string;
+  query?: string;
   lat: number;
   lon: number;
   name: string;
