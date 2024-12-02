@@ -3,9 +3,10 @@ import './App.css';
 import Layout from './components/layout';
 import { ThemeProvider } from './components/context/theme-provider';
 import WeatherDashboard from './pages/weather-dashboard';
-import CityPage from './pages/city-page';
+import { CityPage } from './pages/city-page';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { Toaster } from 'sonner';
 
 //catch stale data, i mean when you are in some citry and visit some other other when you come back, it will prevent from fetching data
 const queryClient = new QueryClient({
@@ -29,6 +30,7 @@ function App() {
               <Route path="/city/:cityName" element={<CityPage />} />
             </Routes>
           </Layout>
+          <Toaster richColors />
         </ThemeProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
