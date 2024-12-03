@@ -8,6 +8,8 @@ import {
 
 class WeatherAPI {
   private createUrl(endpoint: string, params: Record<string, string | number>) {
+    console.log({ endpoint, params });
+    console.log('API Key:', API_CONFIG.API_KEY);
     const searchParams = new URLSearchParams({
       appid: API_CONFIG.API_KEY,
       ...params,
