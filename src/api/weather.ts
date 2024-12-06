@@ -9,7 +9,7 @@ import {
 class WeatherAPI {
   private createUrl(endpoint: string, params: Record<string, string | number>) {
     console.log({ endpoint, params });
-    console.log('API Key:', API_CONFIG.API_KEY);
+    // console.log('API Key:', API_CONFIG.API_KEY);
     const searchParams = new URLSearchParams({
       appid: API_CONFIG.API_KEY,
       ...params,
@@ -21,9 +21,16 @@ class WeatherAPI {
   private async fetchData<T>(url: string): Promise<T> {
     const response = await fetch(url);
 
+    // if (!response.ok) {
+    //   throw new Error(`Weather API Error: ${response.statusText}`);
+
     if (!response.ok) {
+      const errorText = await response.text(); // To log the response body
+      console.error(`Weather API Error: ${response.statusText}`, errorText);
       throw new Error(`Weather API Error: ${response.statusText}`);
     }
+
+    // }
 
     return response.json();
   }

@@ -36,6 +36,8 @@ export function useFavorite() {
         addedAt: Date.now(),
       };
 
+      console.log({ fav: newFavorite, city: city });
+
       //this check if city already exists in favorites
       const exists = favorites.some((fav) => fav.id === newFavorite.id);
       if (exists) return favorites;

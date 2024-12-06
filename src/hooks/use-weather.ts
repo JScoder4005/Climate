@@ -8,7 +8,10 @@ export const WEATHER_KEYS = {
   location: (coords: Coordinates) => ['location', coords] as const,
   search: (query: string) => ['location-search', query] as const,
 } as const;
+
 export function useWeatherQuery(coordinates: Coordinates | null) {
+  console.log('Coordinates in useWeatherQuery:', coordinates);
+
   return useQuery({
     queryKey: WEATHER_KEYS.weather(coordinates ?? { lat: 0, lon: 0 }),
     queryFn: () =>
